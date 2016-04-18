@@ -4,11 +4,7 @@ local MainScene = class("MainScene", function()
 end)
 
 function MainScene:ctor()
-    -- cc.ui.UILabel.new({
-    --         UILabelType = 2, text = "Hello, World", size = 64})
-    --     :align(display.CENTER, display.cx, display.cy)
-    --     :addTo(self)
-    -- 
+   
     display.newTTFLabel({text = "test1",size = 16,x = display.cx,y = display.top - 10,color = cOrange}):addTo(self)
     
     for i = 1,6 do
