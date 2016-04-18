@@ -2,6 +2,8 @@
 require("config")
 require("cocos.init")
 require("framework.init")
+-------------加载自定义-------------------------
+require("def")
 
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
