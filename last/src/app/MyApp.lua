@@ -14,7 +14,14 @@ end
 
 function MyApp:run()
     cc.FileUtils:getInstance():addSearchPath("res/")
-    --cc.FileUtils:getInstance():addSearchPath("src/app/base")
+    cc.FileUtils:getInstance():addSearchPath("src/app/base")
+    cc.FileUtils:getInstance():addSearchPath("src/app/logic")
+
+    local sharedDirector = cc.Director:getInstance()
+    
+    sharedDirector:setDisplayStats(DEBUG_FPS)
+	sharedDirector:setAnimationInterval(1.0/30)
+
     self:enterScene("MainScene")
 end
 

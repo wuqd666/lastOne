@@ -21,13 +21,19 @@ function MainScene:ctor()
     	self._pDesktopNode:addChild(shape2)
     end
 
-    local piece = require("src.app.base.PieceSprite").new({campType = 1,pieceState = 0})
+    local piece = require("PieceSprite").new({campType = 1,pieceState = 0})
     piece:setPosition(200, 200)
     self._pDesktopNode:addChild(piece)
 end
 
 function MainScene:onEnter()
+
+	schedule(self,function () 
+		
+	end,1)
 end
+
+
 
 function MainScene:onExit()
 end
