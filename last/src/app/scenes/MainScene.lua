@@ -4,7 +4,7 @@ local MainScene = class("MainScene", function()
 end)
 
 function MainScene:ctor()
-   
+    print("GameManager score ".. GameManager:getInstance()._score)
     display.newTTFLabel({text = "test1",size = 16,x = display.cx,y = display.top - 10,color = cOrange}):addTo(self)
 	
 	self._pDesktopNode = display.newNode():addTo(self):setPosition(100, 0)

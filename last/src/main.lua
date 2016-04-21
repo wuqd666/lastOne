@@ -8,5 +8,7 @@ end
 
 package.path = package.path .. ";src/"
 
+
+
 cc.FileUtils:getInstance():setPopupNotify(false)
 require("app.MyApp").new():run()

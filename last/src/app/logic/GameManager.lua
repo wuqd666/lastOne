@@ -15,6 +15,11 @@ function GameManager:getInstance()
 	return instance
 end
 
+
 function GameManager:clear()
+	self._score = 0
+end
+
+function GameManager:proc()
 	
 end

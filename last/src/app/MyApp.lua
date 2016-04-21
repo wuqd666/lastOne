@@ -6,6 +6,7 @@ require("framework.init")
 require("def")
 require("func")
 
+
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
 function MyApp:ctor()
@@ -16,7 +17,11 @@ function MyApp:run()
     cc.FileUtils:getInstance():addSearchPath("res/")
     cc.FileUtils:getInstance():addSearchPath("src/app/base")
     cc.FileUtils:getInstance():addSearchPath("src/app/logic")
-
+    
+    require("requires")
+	require("cleans")
+    cleansAllLogicManagersCache()
+    
     local sharedDirector = cc.Director:getInstance()
     
     sharedDirector:setDisplayStats(DEBUG_FPS)
