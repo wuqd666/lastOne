@@ -13,15 +13,10 @@ end
 function PieceSprite:init(args)
 	self._kCampType = args.campType or kCampType.kHero
 	self._kPieceState = args.pieceState or kPieceState.kNone
-	-- 自己为白色敌方为红色
-	local color = self._kCampType == kCampType.kHero and cc.c4f(1, 1, 1, 1) or cc.c4f(1, 0, 0, 1)
-	if empty(self._pSprite) then 
-		self._pSprite = display.newCircle(25,
-		        {x = 0, y = 0,
-		        fillColor = color,
-		        borderColor = cc.c4f(1, 1, 1, 1),
-		        borderWidth = 0}):addTo(self)
-	end
+	local strName = self._kCampType == kCampType.kHero and "white" or "black"
+	self._pSprite = ccui.ImageView:create(strName..".png")
+	self._pSprite:setScale(0.5)
+	self:addChild(self._pSprite)
 end
 
 return PieceSprite

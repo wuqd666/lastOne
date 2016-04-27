@@ -7,6 +7,9 @@ function MainScene:ctor()
     print("GameManager score ".. GameManager:getInstance()._score)
     display.newTTFLabel({text = "test1",size = 16,x = display.cx,y = display.top - 10,color = cOrange}):addTo(self)
 	
+    -- 玩家得分
+    self._pScoreLbl = display.newTTFLabel({text = "等分：",size = 22,x = display.right - 200,y = display.top - 10,color = cWhite}):addTo(self)
+
 	self._pDesktopNode = display.newNode():addTo(self):setPosition(100, 0)
 	
     for i = 1,6 do
@@ -21,18 +24,23 @@ function MainScene:ctor()
     	self._pDesktopNode:addChild(shape2)
     end
 
-    local piece = require("PieceSprite").new({campType = 1,pieceState = 0})
+    local piece = require("PieceSprite").new({campType = 0,pieceState = 0})
     piece:setPosition(200, 200)
     self._pDesktopNode:addChild(piece)
+    -- 设置主场景代理
+    GameManager.getInstance()._pMainSceneDelegate = self
 end
 
 function MainScene:onEnter()
 
 	schedule(self,function () 
-		
+		GameManager.getInstance():proc()
 	end,1)
 end
 
+--function MainScene
+
+--
 
 
 function MainScene:onExit()

@@ -18,8 +18,10 @@ end
 
 function GameManager:clear()
 	self._score = 0
+	self._pMainSceneDelegate = nil 
 end
 
+
 function GameManager:proc()
-	
+	--print("+++++++++++++++++++++++++++++++++++++++++++dida")	
 end
