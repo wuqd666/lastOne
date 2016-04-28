@@ -19,3 +19,13 @@ kCampType = {
 	kHero = 0, -- 英雄
 	kEmey = 1, -- 敌人
 }
+
+--[[-- 
+	角色的状态
+]]
+kRoleState = {
+	kIdle = 0,  -- 等待
+	kAttack = 1, -- 攻击
+	kWin = 2, -- 胜利
+	kFailure = 3, -- 失败
+}

@@ -8,6 +8,7 @@ end)
 function Role:ctor(args)
 	self._strName = args.roleName or "AI"
 	self._nScore = 0
+	self._kState = 0
 end
 
 function Role:failure()

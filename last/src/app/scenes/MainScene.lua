@@ -26,6 +26,7 @@ function MainScene:ctor()
 
     local piece = require("PieceSprite").new({campType = 0,pieceState = 0})
     piece:setPosition(200, 200)
+    piece:setOpacity(255)
     self._pDesktopNode:addChild(piece)
     -- 设置主场景代理
     GameManager.getInstance()._pMainSceneDelegate = self

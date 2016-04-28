@@ -3,10 +3,11 @@ local PieceSprite = class("PieceSprite",function ()
 end)
 
 function PieceSprite:ctor(args)
-	self._tIndex = {0,0}  --自定义坐标
 	self._kCampType = nil -- 阵营类型
 	self._kPieceState = nil -- 状态
 	self._pSprite = nil 
+	self._nRowIndex = 0		-- 第几行
+	self._nColumnIndex = 0  -- 第几列
 	self:init(args)
 end
 
@@ -16,7 +17,30 @@ function PieceSprite:init(args)
 	local strName = self._kCampType == kCampType.kHero and "white" or "black"
 	self._pSprite = ccui.ImageView:create(strName..".png")
 	self._pSprite:setScale(0.5)
+	self._pSprite:setOpacity(0)
 	self:addChild(self._pSprite)
+
+	local function touchEvent(sender,eventType)
+		if eventType == ccui.TouchEventType.ended then
+			print("棋子被点击了")
+			
+		end
+	end
+	self._pSprite:setTouchEnabled(true)
+	self._pSprite:setSwallowTouches(false)
+	self._pSprite:addTouchEventListener(touchEvent)
+end
+
+function PieceSprite:setCampSide(kside)
+	self._kCampType = kside
+	local strName = self._kCampType == kCampType.kHero and "white" or "black"
+	self._pSprite:loadTexture(strName..".png")
+	self._pSprite:setOpacity(255)
+end
+
+function PieceSprite:setState(state)
+	--if self._kPieceState == 
+	self._kPieceState = state
 end
 
 return PieceSprite
