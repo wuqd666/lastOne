@@ -10,8 +10,9 @@ cWhite = cc.c3b(255,242,211)
 -- 棋子的状态
 kPieceState = {
 	kNone = 0,  -- 空的状态
-	kSelected = 1,  -- 被选中状态
-	kDeath = 2,	-- 死亡状态
+	kNormal = 1, -- 正常状态
+	kSelected = 2,  -- 被选中状态
+	kDeath = 3,	-- 死亡状态
 }
 
 -- 阵营的类型
@@ -20,12 +21,10 @@ kCampType = {
 	kEmey = 1, -- 敌人
 }
 
---[[-- 
-	角色的状态
-]]
-kRoleState = {
-	kIdle = 0,  -- 等待
-	kAttack = 1, -- 攻击
-	kWin = 2, -- 胜利
-	kFailure = 3, -- 失败
+-- 棋盘的状态
+kBattleState = {
+	kBegin = 0, -- 开始
+	kFall = 1,  -- 落子
+	kMove = 2,  -- 运子
+	kOver = 3,  -- 战斗结束
 }

@@ -29,6 +29,8 @@ function PieceSprite:init(args)
 	self._pSprite:setTouchEnabled(true)
 	self._pSprite:setSwallowTouches(false)
 	self._pSprite:addTouchEventListener(touchEvent)
+
+	self:setCampSide(self._kCampType)
 end
 
 function PieceSprite:setCampSide(kside)
@@ -39,7 +41,6 @@ function PieceSprite:setCampSide(kside)
 end
 
 function PieceSprite:setState(state)
-	--if self._kPieceState == 
 	self._kPieceState = state
 end
 
