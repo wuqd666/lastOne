@@ -8,6 +8,7 @@ function PieceSprite:ctor(args)
 	self._pSprite = nil 
 	self._nRowIndex = 0		-- 第几行
 	self._nColumnIndex = 0  -- 第几列
+	self._nIndex = 0  -- 所在数组的索引
 	self:init(args)
 end
 
@@ -47,6 +48,12 @@ function PieceSprite:setState(state)
 			or self._kPieceState == kPieceState.kDeath then 
 		self._pSprite:setOpacity(0) -- 初始化或者棋子死亡的时候设置棋子不可见
 	end
+end
+
+-- 设置棋子所在的行和列
+function PieceSprite:setPosInfo(x,y)
+	self._nRowIndex = x
+	self._nColumnIndex = y
 end
 
 return PieceSprite

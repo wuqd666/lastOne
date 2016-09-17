@@ -18,7 +18,8 @@ kPieceState = {
 
 -- 阵营的类型
 kCampType = {
-	kHero = 0, -- 英雄
-	kEmey = 1, -- 敌人
+	kNone = 0,
+	kHero = 1, -- 英雄
+	kEmey = 2, -- 敌人
 }
 
