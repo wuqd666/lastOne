@@ -27,9 +27,7 @@ function MainScene:ctor()
     local piece = require("PieceSprite").new({campType = 0,pieceState = 0})
     piece:setPosition(200, 200)
     self._pDesktopNode:addChild(piece)
-    -- 设置主场景代理
-    GameManager.getInstance()._pMainSceneDelegate = self
-
+   
     --self:setNodeEventEnabled(true)
     self:addSlot()
 end
@@ -41,6 +39,8 @@ end
 
 function MainScene:beginPlaye(args)
     print("----------------------  MainScene:beginPlaye")
+    -- 绘制 36 个空的棋子
+
 end
 
 

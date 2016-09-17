@@ -12,7 +12,8 @@ kPieceState = {
 	kNone = 0,  -- 空的状态
 	kNormal = 1, -- 正常状态
 	kSelected = 2,  -- 被选中状态
-	kDeath = 3,	-- 死亡状态
+	kDisable = 3,  -- 无效
+	kDeath = 4,	-- 死亡状态
 }
 
 -- 阵营的类型
@@ -21,10 +22,3 @@ kCampType = {
 	kEmey = 1, -- 敌人
 }
 
--- 棋盘的状态
-kBattleState = {
-	kBegin = 0, -- 开始
-	kFall = 1,  -- 落子
-	kMove = 2,  -- 运子
-	kOver = 3,  -- 战斗结束
-}

@@ -31,6 +31,7 @@ function PieceSprite:init(args)
 	self._pSprite:addTouchEventListener(touchEvent)
 
 	self:setCampSide(self._kCampType)
+	self:setState(self._kPieceState)
 end
 
 function PieceSprite:setCampSide(kside)
@@ -42,6 +43,10 @@ end
 
 function PieceSprite:setState(state)
 	self._kPieceState = state
+	if self._kPieceState == kPieceState.kNone 
+			or self._kPieceState == kPieceState.kDeath then 
+		self._pSprite:setOpacity(0) -- 初始化或者棋子死亡的时候设置棋子不可见
+	end
 end
 
 return PieceSprite
