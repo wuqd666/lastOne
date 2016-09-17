@@ -29,23 +29,29 @@ function MainScene:ctor()
     self._pDesktopNode:addChild(piece)
     -- 设置主场景代理
     GameManager.getInstance()._pMainSceneDelegate = self
+
+    --self:setNodeEventEnabled(true)
+    self:addSlot()
 end
 
-function 
+
+function MainScene:addSlot()
+    l_framework.addSlot2Signal(self,l_signal.BOARD_INIT,self.beginPlaye)
+end
+
+function MainScene:beginPlaye(args)
+    print("----------------------  MainScene:beginPlaye")
+end
+
 
 function MainScene:onEnter()
-
-	schedule(self,function () 
-		GameManager.getInstance():proc()
-	end,1)
+    print("-------------------  MainScene:onEnter()")
+	
+    MapManager:getInstance()._fsm:satrtup()
 end
 
---function MainScene
-
---
-
-
 function MainScene:onExit()
+    l_framework.remveSlotFromSingal(self,l_signal.BOARD_INIT,self.beginPlaye)
 end
 
 return MainScene

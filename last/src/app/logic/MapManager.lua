@@ -9,13 +9,14 @@ local instance = nil
 
 function MapManager:getInstance()
 	if not instance then 
-		instance = GameManager
+		instance = MapManager
 		instance:clear()
 	end
 	return instance
 end
 
 function MapManager:clear()
+	
 	self._tPieces = {}
 	self._pUIdelegate = nil 
 	-- 有限状态机
@@ -27,28 +28,40 @@ function MapManager:clear()
 		{name = "over", from = "move", to = "over"},
 		{name = "reset", from = "*", to = "none"}
 	}
+	
+	local callbacks = {
+		onenterbegin = handler(self,self.initBoard) 
+	} 
 	self._fsm = machine.create({
 		initial = "none",
 		events = params,
+		callbacks = callbacks,
 	})
-	self:initBoard()
 end
+
+
 
 function MapManager:getPieceByIndex(index)
 	return self._tPieces[index]
 end
 
-function MapManager:getPieceByPosition(int row, int column)
+function MapManager:getPieceByPosition(x,y)
 	local index = x + y * 6
 	return self:getPieceByIndex(index + 1) -- lua 下标是从1 开始的
 end
 
 function MapManager:initBoard()
+	print("------------------  MapManager:initBoard()")
+	
 	for i=1,36 do
 		if self._tPieces[i] then 
-
+			local temp = self._tPieces[index]
+			temp.state = kPieceState.kNone
 		else
 			local temp = {index = i,state = kPieceState.kNone}
+			self._tPieces[i] = temp 
 		end
 	end
+	l_framework.emit(l_signal.BOARD_INIT)
 end
+
