@@ -39,8 +39,6 @@ function MapManager:clear()
 	})
 end
 
-
-
 function MapManager:getPieceByIndex(index)
 	return self._tPieces[index]
 end
@@ -51,19 +49,18 @@ function MapManager:getPieceByPosition(x,y)
 end
 
 function MapManager:initBoard()
-	print("------------------  MapManager:initBoard()")
-	
+	print("------------------  MapManager:initBoard()")	
 	for i=1,36 do
 		if self._tPieces[i] then 
 			local temp = self._tPieces[index]
+			temp.side = kCampType.kNone
 			temp.state = kPieceState.kNone
 		else
-			local temp = {index = i,state = kPieceState.kNone}
+			local temp = {index = i,state = kPieceState.kNone,side = kCampType.kNone}
 			self._tPieces[i] = temp 
 		end
 	end
 	l_framework.emit(l_signal.BOARD_INIT)
-
-	
+	self._fsm:stepone() -- 进入落子阶段
 end
 

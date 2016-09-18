@@ -23,8 +23,24 @@ function PieceSprite:init(args)
 
 	local function touchEvent(sender,eventType)
 		if eventType == ccui.TouchEventType.ended then
-			print("棋子被点击了")
-			
+			-- 如果是自己当前的回合
+			print("l_battleManager._fsm.current: "..l_battleManager._fsm.current)
+			if l_battleManager._fsm.current == l_battleManager._kMyColor then
+				print("棋子被点击了")
+				local pieceModel = MapManager:getInstance():getPieceByIndex(self._nIndex)
+				-- 如果当前是出于落子阶段并且当前选中的栏位是空的
+				if MapManager:getInstance()._fsm.current == "fall" then
+					if pieceModel.side == kCampType.kNone then 
+						pieceModel.side = kCampType.kHero
+						pieceModel.state = kPieceState.kNormal
+						-- 刷新单个棋子的状态
+						l_framework.emit(l_signal.BOARD_PIECE_REFRESH,pieceModel)
+						l_battleManager._fsm:redgo() -- 进入AI 落子的阶段
+					end
+				end
+				return 
+			end
+			print("------- 还没有轮到你,请耐心等待！！")
 		end
 	end
 	self._pSprite:setTouchEnabled(true)
@@ -47,6 +63,8 @@ function PieceSprite:setState(state)
 	if self._kPieceState == kPieceState.kNone 
 			or self._kPieceState == kPieceState.kDeath then 
 		self._pSprite:setOpacity(0) -- 初始化或者棋子死亡的时候设置棋子不可见
+	else
+		self._pSprite:setOpacity(255) 
 	end
 end
 

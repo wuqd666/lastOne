@@ -8,4 +8,7 @@ require("RoleManager")
 l_framework = require("FrameWork")
 -- 观察者事件自定义的变量
 l_signal = require("signal")
+-- 战斗管理器
+l_battleManager = require("BattleManager")
+
 

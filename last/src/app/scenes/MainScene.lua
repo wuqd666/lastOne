@@ -64,22 +64,34 @@ end
 
 function MainScene:addSlot()
     l_framework.addSlot2Signal(self,l_signal.BOARD_INIT,self.beginPlaye)
+    l_framework.addSlot2Signal(self,l_signal.BOARD_PIECE_REFRESH,self.refreshSinglePiece)
 end
 
 function MainScene:beginPlaye(args)
     print("----------------------  MainScene:beginPlaye")
-    
+    l_battleManager._fsm:whitego()
 end
 
 
 function MainScene:onEnter()
-    print("-------------------  MainScene:onEnter()")
-	
+    print("-------------------  MainScene:onEnter()")	
     MapManager:getInstance()._fsm:satrtup()
+end
+
+function MainScene:refreshSinglePiece(pieceModel)
+    dump(pieceModel)
+    if pieceModel then
+        local pPieceNode = self._tPieceNode[pieceModel.index]
+        dump(pPieceNode,"MainScene:refreshSinglePiece"..pieceModel.index)
+        
+        pPieceNode:setCampSide(pieceModel.side)
+        pPieceNode:setState(pieceModel.state)
+    end
 end
 
 function MainScene:onExit()
     l_framework.remveSlotFromSingal(self,l_signal.BOARD_INIT,self.beginPlaye)
+    l_framework.remveSlotFromSingal(self,l_signal.BOARD_PIECE_REFRESH,self.refreshSinglePiece)
 end
 
 return MainScene
