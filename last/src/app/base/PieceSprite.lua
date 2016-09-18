@@ -56,4 +56,8 @@ function PieceSprite:setPosInfo(x,y)
 	self._nColumnIndex = y
 end
 
+function PieceSprite:setTouchEnabled(enable)
+	self._pSprite:setTouchEnabled(enable)
+end
+
 return PieceSprite

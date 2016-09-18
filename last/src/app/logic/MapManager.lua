@@ -63,5 +63,7 @@ function MapManager:initBoard()
 		end
 	end
 	l_framework.emit(l_signal.BOARD_INIT)
+
+	
 end
 
