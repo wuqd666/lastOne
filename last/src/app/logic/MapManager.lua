@@ -50,6 +50,18 @@ end
 
 function MapManager:initBoard()
 	print("------------------  MapManager:initBoard()")	
+
+	local function getPosInfo(index)
+		local x,y = 0
+		if index < 6 then
+			x = index - 1
+		else
+			x = (index % 6) -1
+			y = math.modf(index/6)
+		end
+		return x,y 
+	end
+
 	for i=1,36 do
 		if self._tPieces[i] then 
 			local temp = self._tPieces[index]
@@ -57,6 +69,7 @@ function MapManager:initBoard()
 			temp.state = kPieceState.kNone
 		else
 			local temp = {index = i,state = kPieceState.kNone,side = kCampType.kNone}
+			temp.x, temp.y = getPosInfo(i)
 			self._tPieces[i] = temp 
 		end
 	end

@@ -74,5 +74,65 @@ LOAD LUA FILE: F:/work/quick/lastOne/last/src/main.lua
 
 [LUA-print] ------------------  MapManager:initBoard()
 
+[LUA-print] dump from: [string "F:/work/quick/lastOne/last/src/FrameWork.lua"]:60: in function 'emit'
+
+[LUA-print] - "<var>" = {
+
+[LUA-print] -     1 = {
+
+[LUA-print] -         "slot"   = function: 0x07c97bf0
+
+[LUA-print] -         "target" = userdata: 0x0bb14f80
+
+[LUA-print] -     }
+
+[LUA-print] - }
+
 [LUA-print] ----------------------  MainScene:beginPlaye
+
+[LUA-print] ------------ 进入白色棋子的回合
+
+[LUA-print] l_battleManager._fsm.current: white
+
+[LUA-print] 棋子被点击了
+
+[LUA-print] dump from: [string "F:/work/quick/lastOne/last/src/FrameWork.lua"]:60: in function 'emit'
+
+[LUA-print] - "<var>" = {
+
+[LUA-print] -     1 = {
+
+[LUA-print] -         "slot"   = function: 0x07c97230
+
+[LUA-print] -         "target" = userdata: 0x0bb14f80
+
+[LUA-print] -     }
+
+[LUA-print] - }
+
+[LUA-print] dump from: [string "F:/work/quick/lastOne/last/src/app/scenes/Mai..."]:82: in function 'slot'
+
+[LUA-print] - "<var>" = {
+
+[LUA-print] -     "index" = 31
+
+[LUA-print] -     "side"  = 1
+
+[LUA-print] -     "state" = 1
+
+[LUA-print] - }
+
+[LUA-print] dump from: [string "F:/work/quick/lastOne/last/src/app/scenes/Mai..."]:85: in function 'slot'
+
+[LUA-print] - "MainScene:refreshSinglePiece31" = userdata: 0x0b9cab50
+
+[LUA-print] ------------ 进入红色棋子的回合
+
+[LUA-print] l_battleManager._fsm.current: red
+
+[LUA-print] ------- 还没有轮到你,请耐心等待！！
+
+[LUA-print] l_battleManager._fsm.current: red
+
+[LUA-print] ------- 还没有轮到你,请耐心等待！！
 
