@@ -37,6 +37,7 @@ function MapManager:clear()
 		events = params,
 		callbacks = callbacks,
 	})
+	self._tEmptyPos = {} -- 空着的栏位
 end
 
 function MapManager:getPieceByIndex(index)
@@ -50,11 +51,11 @@ end
 
 function MapManager:initBoard()
 	print("------------------  MapManager:initBoard()")	
-
+	self._tEmptyPos = {}
 	local function getPosInfo(index)
 		local x,y = 0
 		if index < 6 then
-			x = index - 1
+			x = index - 1 
 		else
 			x = (index % 6) -1
 			y = math.modf(index/6)
@@ -72,8 +73,26 @@ function MapManager:initBoard()
 			temp.x, temp.y = getPosInfo(i)
 			self._tPieces[i] = temp 
 		end
+		self._tEmptyPos[#self._tEmptyPos+1] = i
 	end
 	l_framework.emit(l_signal.BOARD_INIT)
 	self._fsm:stepone() -- 进入落子阶段
 end
 
+function MapManager:updatePieceInfo(index,side,state)
+	local pieceModel = getPieceByIndex(index)
+	pieceModel.side = side
+	pieceModel.state = state
+	if side ~= kCampType.kNone then --
+		--table.remove(self._tEmptyPos,index) 这个是错误的用法
+		for i = #self._tEmptyPos,1,-1 do
+			if self._tEmptyPos[i] == index then 
+				table.remove(self._tEmptyPos,i)
+			end
+		end
+	else
+		self._tEmptyPos[#self._tEmptyPos+1] = index
+	end
+	-- 刷新单个棋子的状态
+	l_framework.emit(l_signal.BOARD_PIECE_REFRESH,pieceModel)
+end

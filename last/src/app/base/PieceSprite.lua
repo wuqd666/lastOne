@@ -31,10 +31,8 @@ function PieceSprite:init(args)
 				-- 如果当前是出于落子阶段并且当前选中的栏位是空的
 				if MapManager:getInstance()._fsm.current == "fall" then
 					if pieceModel.side == kCampType.kNone then 
-						pieceModel.side = kCampType.kHero
-						pieceModel.state = kPieceState.kNormal
-						-- 刷新单个棋子的状态
-						l_framework.emit(l_signal.BOARD_PIECE_REFRESH,pieceModel)
+						-- 更新棋子的数据
+						MapManager:getInstance():updatePieceInfo(self._nIndex,kCampType.kHero,kPieceState.kNormal)
 						l_battleManager._fsm:redgo() -- 进入AI 落子的阶段
 					end
 				end
