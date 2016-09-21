@@ -22,16 +22,35 @@ getOneScore = 2100
 canGetTwoScore = 4000
 getTwoScore = 4100
 
--- 获取正确的棋点
-function getRightPlace(side)
-
-end
+-- 行和列简单的数据分析报表
+tForms = {}
 
 -- ai 检查对手有没有得分点
 -- 或者将要得分的点
 -- 人工智障都知道防守的点
-function getEnemyMostValuePos()
+function getEnemyMostValuePos(side)
+	local side = side or kCampType.kNone
+	updateForms()
+end
 
+-- 需要生成敌我双方各自的报表
+function updateForms()
+	tForms = {}
+	for i = 1,12 do
+		if i < 7 then 
+			tForms[i] = getLinkArryInLine({x=0,y=i})
+		else
+		 	tForms[i] = getLinkArryInLine({x=(i-6),y=0},kCampType.kEnemy,2)
+	 	end 
+	end
+end
+
+function getForm(index,direction)
+	local direction = direction or 1 -- 默认是横向的
+	if direction == 2 then 
+		return tForms[index + 6]
+	end
+	return tForms[index]
 end
 
 -- 检查是否可以连成一条线
@@ -103,7 +122,7 @@ end
 -- @param direction : 1 横向 2 纵向
 function getLinkArryInLine(pos,side,direction)
 	side = side or kCampType.kEmey
-	direction = direction or 1
+	local direction = direction or 1
 	local temp = {}
 	for i = 0,5 do
 		local pieceModel
@@ -145,24 +164,139 @@ function getLinkArryInLine(pos,side,direction)
 end
 
 -- 检查一个点是否必定能够组成口字型
-function checkIsMetCanGetOneScore(index,side)
+-- 需要后两步的情况才能达到
+function checkIsStepTwoMetCanGetOneScore(index,side)
+	local isMet = false
 	local side = side or kCampType.kEmey	
 	local defSide = side == kCampType.kHero and kCampType.kEmey or kCampType.kHero
-	local x,y = getPosInfo(index)
-	-- 先检查横向需要两步的情况
-	local pos = {x=x,y=y}
-	local form = getLinkArryInLine(pos)
 	local mapManger = MapManager:getInstance()
+	-- posArry : 最左边或者最下面的点
+	local function checkIsMet(posStart,direction)
+		local direction = direction or 1 -- 1:横向 2:纵向
+		if direction == 1 then 
+			if mapManger:getPieceByPosition(posStart.x,posStart.y-1).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x,posStart.y+1).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x+1,posStart.y-1).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x+1,posStart.y+1).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x+2,posStart.y-1).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x+2,posStart.y+1).side == kCampType.kNone then 
+				return true 
+			end
+		elseif direction == 2 then
+			if mapManger:getPieceByPosition(posStart.x-1,posStart.y).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x+1,posStart.y).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x-1,posStart.y+1).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x+1,posStart.y+1).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x-1,posStart.y+2).side == kCampType.kNone and
+				mapManger:getPieceByPosition(posStart.x+1,posStart.y+2).side == kCampType.kNone then 
+				return true 
+			end
+		end
+		return false  
+	end
+
+	local x,y = getPosInfo(index)
+	local pos = {x=x,y=y}
+	-- 先检查横向
+	local form = getLinkArryInLine(pos)
 	if y > 0 and y < 5 and form.maxLinkNum >= 2 then 
 		for i,v in ipairs(form.template) do
 			if #v == 2 then -- 表示有2连的
-				if (v[1] > 1 and mapManger:getPieceByPosition(v[1]-1,y).side == kCampType.kNone) or
-					(v[#v] < 5 and mapManger:getPieceByPosition(v[#v]+1,y).side == kCampType.kNone) then
-					-- 表示相连的两个点自至少存在一个空余的栏位
+				if x + 1 == v[1] then 
+					if checkIsMet(pos) then isMet = true end 
+				elseif x - 1 == v[2] then 
+					if checkIsMet({x = v[1],y = y}) then isMet = true end 
 				end
 			end
 		end
 	end
+	if not isMet then 
+		-- 再去检查纵向的
+		local form = getLinkArryInLine(pos,kCampType.kEmey,2)
+		if x > 0 and x < 5 and form.maxLinkNum >= 2 then 
+			for i,v in ipairs(form.template) do
+				if #v == 2 then -- 表示有2连的
+					if y + 1 == v[1] then 
+						if checkIsMet(pos) then isMet = true end 
+					elseif y - 1 == v[2] then 
+						if checkIsMet({x = x,y = v[1]}) then isMet = true end 
+					end
+				end
+			end
+		end 
+	end
+	return isMet
+end
+
+-- 检查是否满足需要后一步能够组成的口子型
+-- 
+function checkIsStepOneMetCanGetOneScore(index,side)
+	local isMet = false
+	local side = side or kCampType.kEmey	
+	local defSide = side == kCampType.kHero and kCampType.kEmey or kCampType.kHero
+	local mapManger = MapManager:getInstance()
+	local x,y = getPosInfo(index)
+
+	-- direction 1:横向 2:纵向 
+	-- startPos 最左边或者最下边的那个点
+	local function checkIsMet(startPos,direction)
+		local direction = direction or 1 -- 默认是横向的
+		if direction == 1 then
+			if startPos.y < 5 then 
+				if mapManger:getPieceByPosition(startPos.x,startPos.y+1).side == side and
+					mapManger:getPieceByPosition(startPos.x + 1,startPos.y+1).side == side and 
+					mapManger:getPieceByPosition(startPos.x + 2,startPos.y+1).side == side then 
+					return true 
+				end
+			end
+			if startPos.y > 0 then 
+				if mapManger:getPieceByPosition(startPos.x,startPos.y-1).side == side and
+					mapManger:getPieceByPosition(startPos.x + 1,startPos.y-1).side == side and 
+					mapManger:getPieceByPosition(startPos.x + 2,startPos.y-1).side == side then 
+					return true 
+				end
+			end
+		elseif direction == 2 then 
+			if startPos.x < 5 then 
+				if mapManger:getPieceByPosition(startPos.x + 1,startPos.y).side == side and
+					mapManger:getPieceByPosition(startPos.x + 1,startPos.y+1).side == side and 
+					mapManger:getPieceByPosition(startPos.x + 1,startPos.y+2).side == side then 
+					return true 
+				end
+			end
+			if startPos.x > 0 then 
+				if mapManger:getPieceByPosition(startPos.x - 1,startPos.y).side == side and
+					mapManger:getPieceByPosition(startPos.x - 1,startPos.y + 1).side == side and 
+					mapManger:getPieceByPosition(startPos.x - 1,startPos.y + 2).side == side then 
+					return true 
+				end
+			end
+		end
+		return false
+	end
+	-- 首先去检查横向 先去判断左右的两个点是否为空
+	if x > 0 and x < 5 then 
+		local leftModel = mapManger:getPieceByPosition(x-1, y)
+		local rightModel = mapManger:getPieceByPosition(x+1, y)
+		if leftModel.side == kCampType.kNone and rightModel.side == kCampType.kNone then
+			if checkIsMet({x-1,y}) then 
+				isMet = true
+			end
+		end
+	end
+	if not isMet then 
+		-- 如果横向的不满足再去检查纵向的
+		if y > 0 and y < 5 then  
+			local downModel = mapManger:getPieceByPosition(x, y -1)
+			local upModel = mapManger:getPieceByPosition(x, y + 1)
+			if downModel.side == kCampType.kNone and upModel.side == kCampType.kNone then 
+				if checkIsMet({x,y-1},2) then
+					isMet = true
+				end
+			end 
+		end
+	end
+	return isMet
 end
 
 -- 根据索引获取坐标
