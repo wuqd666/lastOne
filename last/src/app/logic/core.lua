@@ -29,28 +29,53 @@ tForms = {}
 -- 或者将要得分的点
 -- 人工智障都知道防守的点
 function getEnemyMostValuePos(side)
-	local side = side or kCampType.kNone
+	--[[
+		-- 简单起见这个目前只处理AI
+		local side = side or kCampType.kNone
+	]]
 	updateForms()
+	tScore = {} -- 估算加权值
+	nMaxScore = 0 -- 遍历一圈最高得分
+	nMaxIndex = 1 -- 遍历一圈最高分所在的索引
+	local emptyPos = MapManager:getInstance()._tEmptyPos
+	for i,v in ipairs(emptyPos) do
+		--print(i,v)
+		local rowForm = getForm(v)
+		local columnForm = getForm(v,2)
+		if checkIsAllLinkInLine(rowForm) or -- 如果横向连城一条线
+		   checkIsAllLinkInLine(columnForm) then -- 纵向连城一条线
+		   	tScore[v] = getTwoScore
+		   	if getTwoScore > nMaxScore then
+		   		nMaxScore = getTwoScore 
+		   		nMaxIndex = v
+		   	end
+			return v
+		end
+	end
 end
 
 -- 需要生成敌我双方各自的报表
 function updateForms()
-	tForms = {}
+	tForms[kCampType.kEnemy] = {}
+	tForms[kCampType.kHero] = {}
 	for i = 1,12 do
 		if i < 7 then 
-			tForms[i] = getLinkArryInLine({x=0,y=i})
+			tForms[kCampType.kEnemy][i] = getLinkArryInLine({x=0,y=i})
+			tForms[kCampType.kHero][i] = getLinkArryInLine({x=0,y=i},kCampType.kHero)
 		else
-		 	tForms[i] = getLinkArryInLine({x=(i-6),y=0},kCampType.kEnemy,2)
+		 	tForms[kCampType.kEnemy][i] = getLinkArryInLine({x=(i-6),y=0},kCampType.kEnemy,2)
+		 	tForms[kCampType.kHero][i] = getLinkArryInLine({x=(i-6),y=0},kCampType.kHero,2)
 	 	end 
 	end
 end
 
-function getForm(index,direction)
+function getForm(index,direction,side)
 	local direction = direction or 1 -- 默认是横向的
+	local side = side or kCampType.kEnemy -- 
 	if direction == 2 then 
-		return tForms[index + 6]
+		return tForms[side][index + 6]
 	end
-	return tForms[index]
+	return tForms[side][index]
 end
 
 -- 检查是否可以连成一条线

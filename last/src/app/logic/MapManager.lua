@@ -80,7 +80,7 @@ function MapManager:initBoard()
 end
 
 function MapManager:updatePieceInfo(index,side,state)
-	local pieceModel = getPieceByIndex(index)
+	local pieceModel = self:getPieceByIndex(index)
 	pieceModel.side = side
 	pieceModel.state = state
 	if side ~= kCampType.kNone then --
