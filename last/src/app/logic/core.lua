@@ -5,19 +5,22 @@ module(...,package.seeall)
 -- 分数不重复添加
 threePieceEmptyInLine = 10
 fourPieceEmptyInLine = 20
+oneSingleInLine = 50
 twoPieceLinkInLine = 100 -- 同一条线上两个相邻
 threePieceLinkInLine = 200 -- 同一条线上三个相邻
 fourPieceLinkInLine = 300 -- 同一条线上四个相邻
 fivePieceLinkInLine = 400 -- 同一条线上5个相邻
+tLinkScores = {oneSingleInLine,twoPieceLinkInLine,threePieceLinkInLine,fourPieceLinkInLine,fivePieceLinkInLine}
 
 -- 加分或者下步能够组成加分()
-
-defCanGetOneScore = 1000
+-- @120 貌似还和进攻方还是防守方有关系 
+isDefender = true 
+defCanGetOneScore = isDefender and 2000 or 1000
 defGetOneScore = 1100
 defCanGetTwoScore = 3000
 defGetTwoScore = 3100
 
-canGetOneScore = 2000
+canGetOneScore = isDefender and 1000 or 2000
 getOneScore = 2100
 canGetTwoScore = 4000
 getTwoScore = 4100
@@ -33,25 +36,60 @@ function getEnemyMostValuePos(side)
 		-- 简单起见这个目前只处理AI
 		local side = side or kCampType.kNone
 	]]
+	dump( MapManager:getInstance()._tPieces)
 	updateForms()
 	tScore = {} -- 估算加权值
 	nMaxScore = 0 -- 遍历一圈最高得分
 	nMaxIndex = 1 -- 遍历一圈最高分所在的索引
 	local emptyPos = MapManager:getInstance()._tEmptyPos
 	for i,v in ipairs(emptyPos) do
-		--print(i,v)
+		tScore[v] = 0
+		-- 进攻
 		local rowForm = getForm(v)
 		local columnForm = getForm(v,2)
 		if checkIsAllLinkInLine(rowForm) or -- 如果横向连城一条线
 		   checkIsAllLinkInLine(columnForm) then -- 纵向连城一条线
-		   	tScore[v] = getTwoScore
-		   	if getTwoScore > nMaxScore then
-		   		nMaxScore = getTwoScore 
+		   	tScore[v] = checkIsAllLinkInLine(rowForm) ~= checkIsAllLinkInLine(columnForm) and getTwoScore or getTwoScore * 2
+		   	if tScore[v] > nMaxScore then
+		   		nMaxScore = tScore[v]
 		   		nMaxIndex = v
 		   	end
 			return v
 		end
+		-- 防守
+		rowForm = getForm(v,1,kCampType.kHero)
+		columnForm = getForm(v,2,kCampType.kHero)
+		if checkIsAllLinkInLine(rowForm) or -- 如果横向连城一条线
+		   checkIsAllLinkInLine(columnForm) then -- 纵向连城一条线
+		   	local score = checkIsAllLinkInLine(rowForm) ~= checkIsAllLinkInLine(columnForm) and defGetTwoScore or defGetTwoScore * 2
+		   	tScore[v] = score + tScore[v]
+		end
+		local nShapedMouth = checkIsMetShapedMouth(v)
+		if nShapedMouth > 0 then
+			tScore[v] = tScore[v] + nShapedMouth * getOneScore
+		end
+		nShapedMouth = checkIsMetShapedMouth(v,kCampType.kHero)
+		if nShapedMouth > 0 then
+			tScore[v] = tScore[v] + nShapedMouth * defGetOneScore
+		end
+		if checkIsStepOneMetCanGetOneScore(v) or checkIsStepTwoMetCanGetOneScore(v) then 
+			tScore[v] = tScore[v] + nShapedMouth * canGetOneScore
+		end 
+		if checkIsStepOneMetCanGetOneScore(v,kCampType.kHero) or checkIsStepTwoMetCanGetOneScore(v,kCampType.kHero)then 
+			tScore[v] = tScore[v] + nShapedMouth * canGetOneScore
+		end
+
+		local nLineNumAddScore = tLinkScores[checkMaxLinkNum(v)] or 0
+		tScore[v] = tScore[v] + nLineNumAddScore
+		-- tLinkScores
+
+		if tScore[v] > nMaxScore then
+	   		nMaxScore = tScore[v] 
+	   		nMaxIndex = v
+	   	end
 	end
+	dump(tScore,"------------------- 计算加分结果")
+	return nMaxIndex
 end
 
 -- 需要生成敌我双方各自的报表
@@ -60,22 +98,24 @@ function updateForms()
 	tForms[kCampType.kHero] = {}
 	for i = 1,12 do
 		if i < 7 then 
-			tForms[kCampType.kEnemy][i] = getLinkArryInLine({x=0,y=i})
-			tForms[kCampType.kHero][i] = getLinkArryInLine({x=0,y=i},kCampType.kHero)
+			tForms[kCampType.kEnemy][i] = getLinkArryInLine({x=0,y=i-1})
+			tForms[kCampType.kHero][i] = getLinkArryInLine({x=0,y=i-1},kCampType.kHero)
 		else
-		 	tForms[kCampType.kEnemy][i] = getLinkArryInLine({x=(i-6),y=0},kCampType.kEnemy,2)
-		 	tForms[kCampType.kHero][i] = getLinkArryInLine({x=(i-6),y=0},kCampType.kHero,2)
+		 	tForms[kCampType.kEnemy][i] = getLinkArryInLine({x=(i-7),y=0},kCampType.kEnemy,2)
+		 	tForms[kCampType.kHero][i] = getLinkArryInLine({x=(i-7),y=0},kCampType.kHero,2)
 	 	end 
 	end
 end
 
 function getForm(index,direction,side)
 	local direction = direction or 1 -- 默认是横向的
+	local x,y = getPosInfo(index)
 	local side = side or kCampType.kEnemy -- 
+	--dump(tForms,"------------- x"..x.."y  "..y,5)
 	if direction == 2 then 
-		return tForms[side][index + 6]
+		return tForms[side][y + 7]
 	end
-	return tForms[side][index]
+	return tForms[side][x+1]
 end
 
 -- 检查是否可以连成一条线
@@ -85,12 +125,12 @@ end
 
 -- 检查是否可以组成口字型
 -- return 能组成的个数
--- 打算添加一个参考的分数
 function checkIsMetShapedMouth(index,side)
-	side = side or kCampType.kEmey -- 默认为AI方
+	side = side or kCampType.kEnemy -- 默认为AI方
+	print("---------- index "..index)
 	local x,y = getPosInfo(index)
 	local mapManger = MapManager:getInstance()
-	local defSide = side == kCampType.kHero and kCampType.kEmey or kCampType.kHero
+	local defSide = side == kCampType.kHero and kCampType.kEnemy or kCampType.kHero
 
 	local function isMet(models)
 		local isMet = true
@@ -112,7 +152,7 @@ function checkIsMetShapedMouth(index,side)
 		local model1 = mapManger:getPieceByPosition(x+1,y)
 		local model2 = mapManger:getPieceByPosition(x+1,y+1)
 		local model3 = mapManger:getPieceByPosition(x,y+1)
-		if isMet({model1,model2,model3})
+		if isMet({model1,model2,model3}) then
 			maxNum = maxNum + 1
 		end
 	end
@@ -120,7 +160,7 @@ function checkIsMetShapedMouth(index,side)
 		local model1 = mapManger:getPieceByPosition(x-1,y)
 		local model2 = mapManger:getPieceByPosition(x-1,y+1)
 		local model3 = mapManger:getPieceByPosition(x,y+1)
-		if isMet({model1,model2,model3})
+		if isMet({model1,model2,model3}) then
 			maxNum = maxNum + 1
 		end
 	end
@@ -128,7 +168,7 @@ function checkIsMetShapedMouth(index,side)
 		local model1 = mapManger:getPieceByPosition(x-1,y)
 		local model2 = mapManger:getPieceByPosition(x-1,y-1)
 		local model3 = mapManger:getPieceByPosition(x,y-1)
-		if isMet({model1,model2,model3})
+		if isMet({model1,model2,model3}) then 
 			maxNum = maxNum + 1
 		end
 	end
@@ -136,7 +176,7 @@ function checkIsMetShapedMouth(index,side)
 		local model1 = mapManger:getPieceByPosition(x+1,y)
 		local model2 = mapManger:getPieceByPosition(x+1,y-1)
 		local model3 = mapManger:getPieceByPosition(x,y-1)
-		if isMet({model1,model2,model3})
+		if isMet({model1,model2,model3}) then
 			maxNum = maxNum + 1
 		end
 	end
@@ -146,7 +186,7 @@ end
 -- 根据方向和阵营获取通一条线上相连的数组
 -- @param direction : 1 横向 2 纵向
 function getLinkArryInLine(pos,side,direction)
-	side = side or kCampType.kEmey
+	side = side or kCampType.kEnemy
 	local direction = direction or 1
 	local temp = {}
 	for i = 0,5 do
@@ -181,7 +221,7 @@ function getLinkArryInLine(pos,side,direction)
 	end
 	local form = {}
 	form.totalNum = #temp
-	form.maxLinkNum = #maxLinkNum
+	form.maxLinkNum = maxLinkNum
 	form.template = result
 	form.direction = direction
 	form.side = side
@@ -192,8 +232,8 @@ end
 -- 需要后两步的情况才能达到
 function checkIsStepTwoMetCanGetOneScore(index,side)
 	local isMet = false
-	local side = side or kCampType.kEmey	
-	local defSide = side == kCampType.kHero and kCampType.kEmey or kCampType.kHero
+	local side = side or kCampType.kEnemy	
+	local defSide = side == kCampType.kHero and kCampType.kEnemy or kCampType.kHero
 	local mapManger = MapManager:getInstance()
 	-- posArry : 最左边或者最下面的点
 	local function checkIsMet(posStart,direction)
@@ -237,7 +277,7 @@ function checkIsStepTwoMetCanGetOneScore(index,side)
 	end
 	if not isMet then 
 		-- 再去检查纵向的
-		local form = getLinkArryInLine(pos,kCampType.kEmey,2)
+		local form = getLinkArryInLine(pos,kCampType.kEnemy,2)
 		if x > 0 and x < 5 and form.maxLinkNum >= 2 then 
 			for i,v in ipairs(form.template) do
 				if #v == 2 then -- 表示有2连的
@@ -253,12 +293,35 @@ function checkIsStepTwoMetCanGetOneScore(index,side)
 	return isMet
 end
 
+-- 检查一个点横纵两个方向最大相连的个数
+function checkMaxLinkNum(index,side)
+	local side = side or kCampType.kEnemy
+
+	local rowForm = getForm(index,1,side)
+	local columnForm = getForm(index,1,side)
+	local nMaxNum = 0
+	local x,y = getPosInfo(index)
+	dump(rowForm,"-------- x "..x .."y "..y)
+	for i,array in ipairs(rowForm.template or {}) do
+		if x == array[1] - 1 or x == array[#array] + 1 then 
+			nMaxNum = math.max(nMaxNum,#array) 
+		end 
+	end
+	for i,array in ipairs(columnForm.template or {}) do
+		if y == array[1] - 1 or y == array[#array] + 1 then 
+			nMaxNum = math.max(nMaxNum,#array) 
+		end 
+	end
+	print("nMaxNum + 1  ".. (nMaxNum + 1))
+	return nMaxNum + 1
+end
+
 -- 检查是否满足需要后一步能够组成的口子型
 -- 
 function checkIsStepOneMetCanGetOneScore(index,side)
 	local isMet = false
-	local side = side or kCampType.kEmey	
-	local defSide = side == kCampType.kHero and kCampType.kEmey or kCampType.kHero
+	local side = side or kCampType.kEnemy	
+	local defSide = side == kCampType.kHero and kCampType.kEnemy or kCampType.kHero
 	local mapManger = MapManager:getInstance()
 	local x,y = getPosInfo(index)
 
@@ -300,11 +363,12 @@ function checkIsStepOneMetCanGetOneScore(index,side)
 		return false
 	end
 	-- 首先去检查横向 先去判断左右的两个点是否为空
+	
 	if x > 0 and x < 5 then 
 		local leftModel = mapManger:getPieceByPosition(x-1, y)
 		local rightModel = mapManger:getPieceByPosition(x+1, y)
 		if leftModel.side == kCampType.kNone and rightModel.side == kCampType.kNone then
-			if checkIsMet({x-1,y}) then 
+			if checkIsMet({x=x-1,y=y}) then 
 				isMet = true
 			end
 		end
@@ -315,7 +379,7 @@ function checkIsStepOneMetCanGetOneScore(index,side)
 			local downModel = mapManger:getPieceByPosition(x, y -1)
 			local upModel = mapManger:getPieceByPosition(x, y + 1)
 			if downModel.side == kCampType.kNone and upModel.side == kCampType.kNone then 
-				if checkIsMet({x,y-1},2) then
+				if checkIsMet({x=x,y=y-1},2) then
 					isMet = true
 				end
 			end 
@@ -326,13 +390,12 @@ end
 
 -- 根据索引获取坐标
 function getPosInfo(index)
-	local x,y = 0
-	if index < 6 then
-		x = index - 1 
-	else
-		x = (index % 6) -1
-		y = math.modf(index/6)
-	end
+	local x,y = 0,0
+	
+	x = (index-1) % 6 
+	y = math.modf((index-1)/6)
+	
+	printf("index = %s --> x:%s y:%s",index,x,y)
 	return x,y 
 end
 

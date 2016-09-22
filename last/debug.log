@@ -74,20 +74,6 @@ LOAD LUA FILE: F:/work/quick/lastOne/last/src/main.lua
 
 [LUA-print] ------------------  MapManager:initBoard()
 
-[LUA-print] dump from: [string "F:/work/quick/lastOne/last/src/FrameWork.lua"]:60: in function 'emit'
-
-[LUA-print] - "<var>" = {
-
-[LUA-print] -     1 = {
-
-[LUA-print] -         "slot"   = function: 0x07c97bf0
-
-[LUA-print] -         "target" = userdata: 0x0bb14f80
-
-[LUA-print] -     }
-
-[LUA-print] - }
-
 [LUA-print] ----------------------  MainScene:beginPlaye
 
 [LUA-print] ------------ 进入白色棋子的回合
@@ -96,17 +82,2361 @@ LOAD LUA FILE: F:/work/quick/lastOne/last/src/main.lua
 
 [LUA-print] 棋子被点击了
 
-[LUA-print] dump from: [string "F:/work/quick/lastOne/last/src/FrameWork.lua"]:60: in function 'emit'
+[LUA-print] dump from: [string "F:/work/quick/lastOne/last/src/app/scenes/Mai..."]:82: in function 'slot'
+
+[LUA-print] - "<var>" = {
+
+[LUA-print] -     "index" = 15
+
+[LUA-print] -     "side"  = 1
+
+[LUA-print] -     "state" = 1
+
+[LUA-print] -     "x"     = 2
+
+[LUA-print] -     "y"     = 2
+
+[LUA-print] - }
+
+[LUA-print] dump from: [string "F:/work/quick/lastOne/last/src/app/scenes/Mai..."]:85: in function 'slot'
+
+[LUA-print] - "MainScene:refreshSinglePiece15" = userdata: 0x0c7f2c40
+
+[LUA-print] ------------ 进入红色棋子的回合
+
+[LUA-print] dump from: [string ".\core.lua"]:39: in function 'getEnemyMostValuePos'
 
 [LUA-print] - "<var>" = {
 
 [LUA-print] -     1 = {
 
-[LUA-print] -         "slot"   = function: 0x07c97230
+[LUA-print] -         "index" = 1
 
-[LUA-print] -         "target" = userdata: 0x0bb14f80
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 0
+
+[LUA-print] -         "y"     = 0
 
 [LUA-print] -     }
+
+[LUA-print] -     2 = {
+
+[LUA-print] -         "index" = 2
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 1
+
+[LUA-print] -         "y"     = 0
+
+[LUA-print] -     }
+
+[LUA-print] -     3 = {
+
+[LUA-print] -         "index" = 3
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 2
+
+[LUA-print] -         "y"     = 0
+
+[LUA-print] -     }
+
+[LUA-print] -     4 = {
+
+[LUA-print] -         "index" = 4
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 3
+
+[LUA-print] -         "y"     = 0
+
+[LUA-print] -     }
+
+[LUA-print] -     5 = {
+
+[LUA-print] -         "index" = 5
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 4
+
+[LUA-print] -         "y"     = 0
+
+[LUA-print] -     }
+
+[LUA-print] -     6 = {
+
+[LUA-print] -         "index" = 6
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 5
+
+[LUA-print] -         "y"     = 0
+
+[LUA-print] -     }
+
+[LUA-print] -     7 = {
+
+[LUA-print] -         "index" = 7
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 0
+
+[LUA-print] -         "y"     = 1
+
+[LUA-print] -     }
+
+[LUA-print] -     8 = {
+
+[LUA-print] -         "index" = 8
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 1
+
+[LUA-print] -         "y"     = 1
+
+[LUA-print] -     }
+
+[LUA-print] -     9 = {
+
+[LUA-print] -         "index" = 9
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 2
+
+[LUA-print] -         "y"     = 1
+
+[LUA-print] -     }
+
+[LUA-print] -     10 = {
+
+[LUA-print] -         "index" = 10
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 3
+
+[LUA-print] -         "y"     = 1
+
+[LUA-print] -     }
+
+[LUA-print] -     11 = {
+
+[LUA-print] -         "index" = 11
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 4
+
+[LUA-print] -         "y"     = 1
+
+[LUA-print] -     }
+
+[LUA-print] -     12 = {
+
+[LUA-print] -         "index" = 12
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 5
+
+[LUA-print] -         "y"     = 1
+
+[LUA-print] -     }
+
+[LUA-print] -     13 = {
+
+[LUA-print] -         "index" = 13
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 0
+
+[LUA-print] -         "y"     = 2
+
+[LUA-print] -     }
+
+[LUA-print] -     14 = {
+
+[LUA-print] -         "index" = 14
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 1
+
+[LUA-print] -         "y"     = 2
+
+[LUA-print] -     }
+
+[LUA-print] -     15 = {
+
+[LUA-print] -         "index" = 15
+
+[LUA-print] -         "side"  = 1
+
+[LUA-print] -         "state" = 1
+
+[LUA-print] -         "x"     = 2
+
+[LUA-print] -         "y"     = 2
+
+[LUA-print] -     }
+
+[LUA-print] -     16 = {
+
+[LUA-print] -         "index" = 16
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 3
+
+[LUA-print] -         "y"     = 2
+
+[LUA-print] -     }
+
+[LUA-print] -     17 = {
+
+[LUA-print] -         "index" = 17
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 4
+
+[LUA-print] -         "y"     = 2
+
+[LUA-print] -     }
+
+[LUA-print] -     18 = {
+
+[LUA-print] -         "index" = 18
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 5
+
+[LUA-print] -         "y"     = 2
+
+[LUA-print] -     }
+
+[LUA-print] -     19 = {
+
+[LUA-print] -         "index" = 19
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 0
+
+[LUA-print] -         "y"     = 3
+
+[LUA-print] -     }
+
+[LUA-print] -     20 = {
+
+[LUA-print] -         "index" = 20
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 1
+
+[LUA-print] -         "y"     = 3
+
+[LUA-print] -     }
+
+[LUA-print] -     21 = {
+
+[LUA-print] -         "index" = 21
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 2
+
+[LUA-print] -         "y"     = 3
+
+[LUA-print] -     }
+
+[LUA-print] -     22 = {
+
+[LUA-print] -         "index" = 22
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 3
+
+[LUA-print] -         "y"     = 3
+
+[LUA-print] -     }
+
+[LUA-print] -     23 = {
+
+[LUA-print] -         "index" = 23
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 4
+
+[LUA-print] -         "y"     = 3
+
+[LUA-print] -     }
+
+[LUA-print] -     24 = {
+
+[LUA-print] -         "index" = 24
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 5
+
+[LUA-print] -         "y"     = 3
+
+[LUA-print] -     }
+
+[LUA-print] -     25 = {
+
+[LUA-print] -         "index" = 25
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 0
+
+[LUA-print] -         "y"     = 4
+
+[LUA-print] -     }
+
+[LUA-print] -     26 = {
+
+[LUA-print] -         "index" = 26
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 1
+
+[LUA-print] -         "y"     = 4
+
+[LUA-print] -     }
+
+[LUA-print] -     27 = {
+
+[LUA-print] -         "index" = 27
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 2
+
+[LUA-print] -         "y"     = 4
+
+[LUA-print] -     }
+
+[LUA-print] -     28 = {
+
+[LUA-print] -         "index" = 28
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 3
+
+[LUA-print] -         "y"     = 4
+
+[LUA-print] -     }
+
+[LUA-print] -     29 = {
+
+[LUA-print] -         "index" = 29
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 4
+
+[LUA-print] -         "y"     = 4
+
+[LUA-print] -     }
+
+[LUA-print] -     30 = {
+
+[LUA-print] -         "index" = 30
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 5
+
+[LUA-print] -         "y"     = 4
+
+[LUA-print] -     }
+
+[LUA-print] -     31 = {
+
+[LUA-print] -         "index" = 31
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 0
+
+[LUA-print] -         "y"     = 5
+
+[LUA-print] -     }
+
+[LUA-print] -     32 = {
+
+[LUA-print] -         "index" = 32
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 1
+
+[LUA-print] -         "y"     = 5
+
+[LUA-print] -     }
+
+[LUA-print] -     33 = {
+
+[LUA-print] -         "index" = 33
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 2
+
+[LUA-print] -         "y"     = 5
+
+[LUA-print] -     }
+
+[LUA-print] -     34 = {
+
+[LUA-print] -         "index" = 34
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 3
+
+[LUA-print] -         "y"     = 5
+
+[LUA-print] -     }
+
+[LUA-print] -     35 = {
+
+[LUA-print] -         "index" = 35
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 4
+
+[LUA-print] -         "y"     = 5
+
+[LUA-print] -     }
+
+[LUA-print] -     36 = {
+
+[LUA-print] -         "index" = 36
+
+[LUA-print] -         "side"  = 0
+
+[LUA-print] -         "state" = 0
+
+[LUA-print] -         "x"     = 5
+
+[LUA-print] -         "y"     = 5
+
+[LUA-print] -     }
+
+[LUA-print] - }
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] ---------- index 1
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] ---------- index 1
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] index = 1 --> x:0 y:0
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 0y 0" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] ---------- index 2
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] ---------- index 2
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] index = 2 --> x:1 y:0
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 1y 0" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] ---------- index 3
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] ---------- index 3
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] index = 3 --> x:2 y:0
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 2y 0" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] ---------- index 4
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] ---------- index 4
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] index = 4 --> x:3 y:0
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 3y 0" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] ---------- index 5
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] ---------- index 5
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] index = 5 --> x:4 y:0
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 4y 0" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] ---------- index 6
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] ---------- index 6
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] index = 6 --> x:5 y:0
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 5y 0" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] ---------- index 7
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] ---------- index 7
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] index = 7 --> x:0 y:1
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 0y 1" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] ---------- index 8
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] ---------- index 8
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] index = 8 --> x:1 y:1
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 1y 1" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] ---------- index 9
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] ---------- index 9
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] index = 9 --> x:2 y:1
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 2y 1" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] ---------- index 10
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] ---------- index 10
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] index = 10 --> x:3 y:1
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 3y 1" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] ---------- index 11
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] ---------- index 11
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] index = 11 --> x:4 y:1
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 4y 1" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] ---------- index 12
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] ---------- index 12
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] index = 12 --> x:5 y:1
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 5y 1" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] ---------- index 13
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] ---------- index 13
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] index = 13 --> x:0 y:2
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 0y 2" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] ---------- index 14
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] ---------- index 14
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] index = 14 --> x:1 y:2
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 1y 2" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] ---------- index 16
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] ---------- index 16
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] index = 16 --> x:3 y:2
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 3y 2" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] ---------- index 17
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] ---------- index 17
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] index = 17 --> x:4 y:2
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 4y 2" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] ---------- index 18
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] ---------- index 18
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] index = 18 --> x:5 y:2
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 5y 2" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] ---------- index 19
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] ---------- index 19
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] index = 19 --> x:0 y:3
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 0y 3" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] ---------- index 20
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] ---------- index 20
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] index = 20 --> x:1 y:3
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 1y 3" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] ---------- index 21
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] ---------- index 21
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] index = 21 --> x:2 y:3
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 2y 3" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] ---------- index 22
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] ---------- index 22
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] index = 22 --> x:3 y:3
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 3y 3" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] ---------- index 23
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] ---------- index 23
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] index = 23 --> x:4 y:3
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 4y 3" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] ---------- index 24
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] ---------- index 24
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] index = 24 --> x:5 y:3
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 5y 3" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] ---------- index 25
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] ---------- index 25
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] index = 25 --> x:0 y:4
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 0y 4" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] ---------- index 26
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] ---------- index 26
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] index = 26 --> x:1 y:4
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 1y 4" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] ---------- index 27
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] ---------- index 27
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] index = 27 --> x:2 y:4
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 2y 4" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] ---------- index 28
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] ---------- index 28
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] index = 28 --> x:3 y:4
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 3y 4" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] ---------- index 29
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] ---------- index 29
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] index = 29 --> x:4 y:4
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 4y 4" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] ---------- index 30
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] ---------- index 30
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] index = 30 --> x:5 y:4
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 5y 4" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] ---------- index 31
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] ---------- index 31
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] index = 31 --> x:0 y:5
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 0y 5" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] ---------- index 32
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] ---------- index 32
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] index = 32 --> x:1 y:5
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 1y 5" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] ---------- index 33
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] ---------- index 33
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] index = 33 --> x:2 y:5
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 2y 5" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] ---------- index 34
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] ---------- index 34
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] index = 34 --> x:3 y:5
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 3y 5" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] ---------- index 35
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] ---------- index 35
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] index = 35 --> x:4 y:5
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 4y 5" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] ---------- index 36
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] ---------- index 36
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] index = 36 --> x:5 y:5
+
+[LUA-print] dump from: [string ".\core.lua"]:304: in function 'checkMaxLinkNum'
+
+[LUA-print] - "-------- x 5y 5" = {
+
+[LUA-print] -     "direction"  = 1
+
+[LUA-print] -     "maxLinkNum" = 0
+
+[LUA-print] -     "side"       = 2
+
+[LUA-print] -     "template" = {
+
+[LUA-print] -     }
+
+[LUA-print] -     "totalNum"   = 0
+
+[LUA-print] - }
+
+[LUA-print] nMaxNum + 1  1
+
+[LUA-print] dump from: [string ".\core.lua"]:91: in function 'getEnemyMostValuePos'
+
+[LUA-print] - "------------------- 计算加分结果" = {
+
+[LUA-print] -     1  = 50
+
+[LUA-print] -     2  = 50
+
+[LUA-print] -     3  = 50
+
+[LUA-print] -     4  = 50
+
+[LUA-print] -     5  = 50
+
+[LUA-print] -     6  = 50
+
+[LUA-print] -     7  = 50
+
+[LUA-print] -     8  = 50
+
+[LUA-print] -     9  = 50
+
+[LUA-print] -     10 = 50
+
+[LUA-print] -     11 = 50
+
+[LUA-print] -     12 = 50
+
+[LUA-print] -     13 = 50
+
+[LUA-print] -     14 = 50
+
+[LUA-print] -     16 = 50
+
+[LUA-print] -     17 = 50
+
+[LUA-print] -     18 = 50
+
+[LUA-print] -     19 = 50
+
+[LUA-print] -     20 = 50
+
+[LUA-print] -     21 = 50
+
+[LUA-print] -     22 = 50
+
+[LUA-print] -     23 = 50
+
+[LUA-print] -     24 = 50
+
+[LUA-print] -     25 = 50
+
+[LUA-print] -     26 = 50
+
+[LUA-print] -     27 = 50
+
+[LUA-print] -     28 = 50
+
+[LUA-print] -     29 = 50
+
+[LUA-print] -     30 = 50
+
+[LUA-print] -     31 = 50
+
+[LUA-print] -     32 = 50
+
+[LUA-print] -     33 = 50
+
+[LUA-print] -     34 = 50
+
+[LUA-print] -     35 = 50
+
+[LUA-print] -     36 = 50
 
 [LUA-print] - }
 
@@ -114,25 +2444,21 @@ LOAD LUA FILE: F:/work/quick/lastOne/last/src/main.lua
 
 [LUA-print] - "<var>" = {
 
-[LUA-print] -     "index" = 31
+[LUA-print] -     "index" = 1
 
-[LUA-print] -     "side"  = 1
+[LUA-print] -     "side"  = 2
 
 [LUA-print] -     "state" = 1
+
+[LUA-print] -     "x"     = 0
+
+[LUA-print] -     "y"     = 0
 
 [LUA-print] - }
 
 [LUA-print] dump from: [string "F:/work/quick/lastOne/last/src/app/scenes/Mai..."]:85: in function 'slot'
 
-[LUA-print] - "MainScene:refreshSinglePiece31" = userdata: 0x0b9cab50
+[LUA-print] - "MainScene:refreshSinglePiece1" = userdata: 0x0c7ed1d0
 
-[LUA-print] ------------ 进入红色棋子的回合
-
-[LUA-print] l_battleManager._fsm.current: red
-
-[LUA-print] ------- 还没有轮到你,请耐心等待！！
-
-[LUA-print] l_battleManager._fsm.current: red
-
-[LUA-print] ------- 还没有轮到你,请耐心等待！！
+[LUA-print] ------------ 进入白色棋子的回合
 

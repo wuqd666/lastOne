@@ -20,6 +20,6 @@ kPieceState = {
 kCampType = {
 	kNone = 0,
 	kHero = 1, -- 英雄
-	kEmey = 2, -- 敌人
+	kEnemy = 2, -- 敌人
 }
 

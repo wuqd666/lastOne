@@ -37,6 +37,14 @@ function onRedPlay()
 	if _curMyColor == "red" then 
 		return
 	end
+	if MapManager:getInstance()._fsm.current == "fall" then
+		
+		-- 更新棋子的数据
+		local index = require("core").getEnemyMostValuePos()
+		MapManager:getInstance():updatePieceInfo(index,kCampType.kEnemy,kPieceState.kNormal)
+		l_battleManager._fsm:whitego() -- 进入AI 落子的阶段
+		
+	end
 end
 
 clear()

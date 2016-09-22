@@ -54,12 +54,10 @@ function MapManager:initBoard()
 	self._tEmptyPos = {}
 	local function getPosInfo(index)
 		local x,y = 0
-		if index < 6 then
-			x = index - 1 
-		else
-			x = (index % 6) -1
-			y = math.modf(index/6)
-		end
+	
+		x = (index-1) % 6 
+		y = math.modf((index-1)/6)
+	
 		return x,y 
 	end
 

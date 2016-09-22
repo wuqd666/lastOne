@@ -57,7 +57,7 @@ end
 -- 抛送事件
 function FrameWork.emit(signal,args)
 	local signals = FrameWork.signalSlotTable[signal]
-	dump(signals)
+	--dump(signals)
 	if signals then 
 		for i = #signals, 1, -1 do 
 			local v = signals[i] 
