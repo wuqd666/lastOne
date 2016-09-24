@@ -16,12 +16,12 @@ tLinkScores = {oneSingleInLine,twoPieceLinkInLine,threePieceLinkInLine,fourPiece
 -- @120 貌似还和进攻方还是防守方有关系 
 isDefender = true 
 defCanGetOneScore = isDefender and 2000 or 1000
-defGetOneScore = 1100
-defCanGetTwoScore = 3000
-defGetTwoScore = 3100
+defGetOneScore = isDefender and 21000 or 11000
+defCanGetTwoScore = 10000
+defGetTwoScore = 31000
 
 canGetOneScore = isDefender and 1000 or 2000
-getOneScore = 2100
+getOneScore = isDefender and 1100 or 2100
 canGetTwoScore = 4000
 getTwoScore = 4100
 
@@ -36,12 +36,12 @@ function getEnemyMostValuePos(side)
 		-- 简单起见这个目前只处理AI
 		local side = side or kCampType.kNone
 	]]
-	dump( MapManager:getInstance()._tPieces)
 	updateForms()
 	tScore = {} -- 估算加权值
 	nMaxScore = 0 -- 遍历一圈最高得分
 	nMaxIndex = 1 -- 遍历一圈最高分所在的索引
 	local emptyPos = MapManager:getInstance()._tEmptyPos
+	dump(emptyPos,"--------- 空余的栏位")
 	for i,v in ipairs(emptyPos) do
 		tScore[v] = 0
 		-- 进攻
@@ -215,6 +215,7 @@ function getLinkArryInLine(pos,side,direction)
 			maxLinkNum = math.max(maxLinkNum,curLoopNum) 
 			if not result[#result + 1] then
 				result[#result + 1] = {}
+				table.insert(result[#result],v)
 			end
 			curLoopNum = 0
 		end
@@ -260,7 +261,7 @@ function checkIsStepTwoMetCanGetOneScore(index,side)
 		return false  
 	end
 
-	local x,y = getPosInfo(index)
+	local x,y = getPosInfo(index) 
 	local pos = {x=x,y=y}
 	-- 先检查横向
 	local form = getLinkArryInLine(pos)
@@ -282,9 +283,9 @@ function checkIsStepTwoMetCanGetOneScore(index,side)
 			for i,v in ipairs(form.template) do
 				if #v == 2 then -- 表示有2连的
 					if y + 1 == v[1] then 
-						if checkIsMet(pos) then isMet = true end 
+						if checkIsMet(pos,2) then isMet = true end 
 					elseif y - 1 == v[2] then 
-						if checkIsMet({x = x,y = v[1]}) then isMet = true end 
+						if checkIsMet({x = x,y = v[1]},2) then isMet = true end 
 					end
 				end
 			end
